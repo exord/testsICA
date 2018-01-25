@@ -1,0 +1,27 @@
+TEST 0
+\\\\\\
+
+2018-01-25
+
+Primer test de ICA.
+
+Data set construido a mano.
+
+x = np.linspace(0, 10, 1000)
+
+s1 = np.sin(2*pi*x/3.5435)
+
+Segunda fuente es una suma de tres sinusoides con fases al azar (ver fichero con arrays)
+s2 = np.sin(2*pi*(x/0.02578 + np.random.rand())) + np.sin(2*pi*(x/0.0124+np.random.rand())) + np.sin(2*pi*(x/0.7851 + np.random.rand()))
+
+Pesos elegidos al azar
+a = array([ 0.29479376,  0.58197087])
+b = array([ 0.21470394,  0.29172285])
+
+y1 = a[0] * s1 + b[0] * s2 
+y2 = a[1] * s1 + b[1] * s2
+
+o equivalente
+Y = a * s1[:, None]  + b * s2[:, None]
+
+
